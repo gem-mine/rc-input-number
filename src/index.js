@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import KeyCode from 'rc-util/lib/KeyCode';
+import RcInput from '@gem-mine/rc-input';
 import InputHandler from './InputHandler';
 
 function noop() {
@@ -651,7 +652,7 @@ export default class InputNumber extends React.Component {
   }
 
   saveInput = (node) => {
-    this.input = node;
+    this.input = node && node.inputRef;
   }
 
   render() {
@@ -780,7 +781,7 @@ export default class InputNumber extends React.Component {
         <div
           className={`${prefixCls}-input-wrap`}
         >
-          <input
+          <RcInput
             role="spinbutton"
             aria-valuemin={props.min}
             aria-valuemax={props.max}
@@ -788,6 +789,7 @@ export default class InputNumber extends React.Component {
             required={props.required}
             type={props.type}
             placeholder={props.placeholder}
+            prefixCls={`${prefixCls}`}
             onClick={props.onClick}
             onMouseUp={this.onMouseUp}
             className={`${prefixCls}-input`}

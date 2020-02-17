@@ -1,6 +1,6 @@
 /* eslint no-console:0 */
-import 'rc-input-number/assets/index.less';
-import InputNumber from 'rc-input-number';
+import '@gem-mine/rc-input-number/assets/index.less';
+import InputNumber from '@gem-mine/rc-input-number';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
