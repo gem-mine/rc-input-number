@@ -225,8 +225,6 @@ export default class InputNumber extends React.Component {
         this.focus();
       }
     }
-
-    this.pressingUpOrDown = false;
   }
 
   componentWillUnmount() {
@@ -616,9 +614,14 @@ export default class InputNumber extends React.Component {
       val = props.min;
     }
     this.setValue(val);
-    this.setState({
+    this.setState(
+      {
       focused: true,
-    });
+      },
+      () => {
+        this.pressingUpOrDown = false;
+      },
+    );
     if (outOfRange) {
       return;
     }
